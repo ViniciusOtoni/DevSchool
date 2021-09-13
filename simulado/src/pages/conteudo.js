@@ -56,7 +56,7 @@ export default function  ConteudoPrinci() {
 
     const validarResposta = (resp) => {
        
-
+        
         if (!resp.erro)
             return true;
             toast.error(`${resp.erro}`);

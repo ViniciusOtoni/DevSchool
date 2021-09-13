@@ -21,10 +21,10 @@ app.post('/matricula', async (req, resp) => {
 try {
     
     let r = req.body;
-
-   
-
- 
+    let e = await db.tb_matricula.findOne({ where: { nm_turma: r.nm_turma, nr_chamada: r.nr_chamada } })
+ if(e != null)
+ resp.send({ erro: "Não Pode Inserir Aluno Com a Mesma Chamada Em uma Mesma Turma!"})
+  
 
     let s = await db.tb_matricula.create({
         nm_aluno: r.nm_aluno,
